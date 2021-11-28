@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CodeAtoZ</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/stylesheets/ContentPages.css">
+		<link rel="stylesheet" href="/stylesheets/login.css">
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+	<nav id="mainNavbar" class="navbar navbar-dark navbar-fixed-top">
+		<div class="container">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand nav-color" href="/">CodeAtoZ</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<% if(!currentUser){ %>
+							<li><a class="nav-link login-btn">Login</a></li>
+							<li><a class="nav-link" href="/register">Sign Up</a></li>
+						<% }else{ %>
+							<li><a class="nav-link" href="/profile/<%=currentUser.username%>"><%= currentUser.username %></a></li>
+							<li><a class="nav-link" href="/logout">Logout</a></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </nav>
+	<div class="form-popup" id="myForm" style="display: none;">
+	  <form action="/login1" class="form-container" method="POST">
+		<h1 class="formpop">Login to CodeAtoZ</h1>
+		<label for="email"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="username" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input type="password" placeholder="Enter Password" name="password" required>
+
+		<button type="submit" class="btn log">Login</button>
+		<button type="button" class="btn cancel">Close</button>
+	  </form>
+	</div>
+
+		
+		<%if(error && error.length > 0){%>
+			<div class="form-popup" id="myForm">
+			  <form action="/login1" class="form-container" method="POST">
+				<h1 class="formpop">Login to CodeAtoZ</h1>
+				<div class="alert alert-danger alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<%=error%>
+				</div>
+				<label for="email"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="username" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="password" required>
+
+				<button type="submit" class="btn log">Login</button>
+				<button type="button" class="btn cancel">Close</button>
+			  </form>
+			</div>
+		<%}%>
+		
+		
+<div class="container">
+	 <div class="jumbotron">
+		 <h1 class="display-4">Backtracking</h1>
+		 <hr class="my-4">
+		 <p class="lead">This module will help you grasp the concept required for Backtracking, whilst you practice the below mentioned problems.</p>
+	 </div>
+     <table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">S.No.</th>
+      <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">Question</th>
+	  <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">Difficulty</th>
+	  <th scope="col" style="text-align:center;padding-top:15px; padding-bottom:15px;">Host</th>
+    </tr>
+  </thead>
+		<tbody>
+    		<tr>
+      			<th scope="row" style="text-align:center;">1</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/two-sum/" target="_blank">Two Sums</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">2</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/" target="_blank">Remove Duplicated from Sorted Array</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">3</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank">Search in Rotated Sorted Array</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">4</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/maximum-subarray/" target="_blank">Maximum Subarray</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">5</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank">Best Time to Buy and Sell Stock</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">6</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank">Best Time to Buy and Sell Stock II</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">7</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/" target="_blank">Best Time to Buy and Sell Stock III</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">8</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/move-zeroes/" target="_blank">Move Zeros</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">9</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/game-of-life/" target="_blank">Game of Life</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">10</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/median-of-two-sorted-arrays" target="_blank">Median of Two Sorted Arrays</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">11</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/max-chunks-to-make-sorted" target="_blank">Max Chunks To Make Sorted</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">12</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/length-of-longest-fibonacci-subsequence" target="_blank">Length of Longest Fibonacci Sequence</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">13</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/spiral-matrix-iii" target="_blank">Spiral Matrix III</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">14</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/bitwise-ors-of-subarrays" target="_blank">Bitwise ORs of Subarrays</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">15</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/unique-email-addresses" target="_blank">Unique Email Addresses</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">16</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/delete-columns-to-make-sorted" target="_blank">Delete Columns to Make Sorted</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">17</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/odd-even-jump" target="_blank">Odd Even Jump</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">18</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/number-of-squareful-arrays" target="_blank">Number of Squareful Arrays</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">19</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/two-city-scheduling" target="_blank">Two City Scheduling</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">20</th>
+				<td style="text-align:center;"><a href="https://leetcode.com/problems/escape-a-large-maze" target="_blank">Escape a Large Maze</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Leetcode</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">21</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/1068" target="_blank">Weird Algorithm</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">22</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/1083" target="_blank">Missing Number</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">23</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/1069" target="_blank">Repetitions</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">24</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/1094" target="_blank">Increasing Array</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">25</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/1070" target="_blank">Permutations</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">26</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/1072" target="_blank">Two Knights</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">27</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/1618" target="_blank">Trailing Zeros</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">28</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/2431" target="_blank">Digit Queries</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">29</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/1632" target="_blank">Movie Festival II</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">30</th>
+				<td style="text-align:center;"><a href="https://cses.fi/problemset/task/1077" target="_blank">Sliding Cost</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">CSES</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">31</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/KTTABLE" target="_blank">Kitchen Timetable</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">32</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/MSNSADM1" target="_blank">Football</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">33</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/LECANDY" target="_blank">Little Elephant and Candies</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">34</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/TLG" target="_blank">The Lead Game</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">35</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/REPLESX" target="_blank">Replace for X</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">36</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/AVGPR" target="_blank">Average of Pairs</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">37</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/BC106" target="_blank">Long Long Sum</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">38</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/FREQARRY" target="_blank">Frequency Array</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">39</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/MULARR" target="_blank">Multiply the Array</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">40</th>
+				<td style="text-align:center;"><a href="https://www.codechef.com/problems/BDYGFT" target="_blank">Birthday of Anabelle</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Codechef</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">41</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/750/A" target="_blank">New Year and Hurry</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">42</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/202/A" target="_blank">LLPS</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">43</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/1490/C" target="_blank">Sum of Cubes</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">44</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/492/B" target="_blank">Vanya and Lanterns</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">45</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/812/C" target="_blank">Sagheer and Nubian Market</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">46</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/1462/E1" target="_blank">Close Tuples</a></td>
+				<td style="text-align:center;">Medium</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">47</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/241/B" target="_blank">Friends</a></td>
+				<td style="text-align:center;">Easy</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">48</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/1358/F" target="_blank">Tasty Cookie</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">49</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/961/F" target="_blank">k-substrings</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+			<tr>
+      			<th scope="row" style="text-align:center;">50</th>
+				<td style="text-align:center;"><a href="https://codeforces.com/problemset/problem/1514/E" target="_blank">Baby Ehab's Hyper Apartment</a></td>
+				<td style="text-align:center;">Hard</td>
+				<td style="text-align:center;">Codeforces</td>
+    		</tr>
+		 </tbody>
+		</table>
+</div>
+		
+		<script>
+			  $('body').on('click', '.login-btn', function(e){
+					e.preventDefault();
+					$('.form-popup').fadeIn(300);
+		 	 });
+			 $('body').on('click', '.cancel', function(e){
+				 e.preventDefault();
+				$('.form-popup').fadeOut(300);
+		 	});
+			$('body').on('click','.close',function(e){
+				$('.alert').css("display","none");
+			});
+		</script>
+
+<%- include("/workspace/CodeAtoZ/v7/views/partials/footer") -%>

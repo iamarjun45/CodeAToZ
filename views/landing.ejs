@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CodeAtoZ</title>
+		<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+		<link rel="stylesheet" href="/stylesheets/login.css">
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+    <div class="container">
+		<nav id="mainNavbar" class="navbar navbar-dark bg-dark navbar-inverted">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand nav-color" href="/">CodeAtoZ</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+					<% if(!currentUser){ %>
+							<li><a class="nav-link login-btn" href="#">Login</a></li>
+							<li><a class="nav-link" href="/register">Sign Up</a></li>
+						<% }else{ %>
+							<li><a class="nav-link" href="/profile/<%=currentUser.username%>"><%= currentUser.username %></a></li>
+							<li><a class="nav-link" href="/logout">Logout</a></li>
+						<% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+	
+		<%if(error && error.length > 0){%>
+			<div class="form-popup" id="myForm">
+			  <form action="/login" class="form-container" method="POST">
+				<h1 class="formpop">Login to CodeAtoZ</h1>
+				<div class="alert alert-danger alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<%=error%>
+				</div>
+				<label for="email"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="username" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="password" required>
+
+				<button type="submit" class="btn log">Login</button>
+				<button type="button" class="btn cancel">Close</button>
+			  </form>
+			</div>
+		<%}%>
+    <div id="landing-header">
+ 		<h1 id="content">Welcome to CodeAtoZ!</h1>
+		<a href="/contents" class="btn btn-md btn-success" style="margin-right:3px;"><i class="fas fa-laptop"></i> Contents</a>
+		<a href="/events" class="btn btn-md btn-success" style="margin-left:3px;"><i class="fas fa-trophy"></i> Events</a>
+    </div>
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+		
+
+<div class="form-popup" id="myForm" style="display: none;">
+  <form action="/login" class="form-container" method="POST">
+    <h1 class="formpop">Login to CodeAtoZ</h1>
+	<!-- <div class="loginError">
+		<p>
+			Wrong login or password!
+		</p>
+	</div> -->
+    <label for="email"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    <button type="submit" class="btn log">Login</button>
+    <button type="button" class="btn cancel">Close</button>
+  </form>
+</div>
+		
+<script>
+	  $('body').on('click', '.login-btn', function(e){
+    	e.preventDefault();
+    	$('.form-popup').fadeIn(300);
+  });
+	 $('body').on('click', '.cancel', function(e){
+   		 e.preventDefault();
+     	$('.form-popup').fadeOut(300);
+  });
+	$('body').on('click','.close',function(e){
+		$('.alert').css("display","none");
+	});
+</script>
+<%- include("./partials/footer") -%>

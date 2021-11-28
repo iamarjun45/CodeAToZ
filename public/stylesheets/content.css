@@ -1,0 +1,92 @@
+body {
+	background-color: #000;
+	font-family: 'Raleway', sans-serif;
+}
+
+.thumbnail img{
+	width:100%;
+	border:3px solid black;
+}
+.btn-primary{
+	background-color:Black;
+	border:none;
+}
+.but{
+	padding-top:15px;
+}
+.Learn{
+	border:1px Solid White;
+}
+.thumbnail{
+	padding:12px 12px;
+	background-color:rgba(225,225,225,0.9);
+	color:Black;
+	border-radius:15px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border:none;
+}
+.thumbnail .caption-full{
+	padding:9px;
+	color:Black;
+	
+}
+.thumbnail .caption{
+	color:Black;
+	
+}
+
+body {
+  /* Full height */
+  height: 100%;  /* Center and scale the image nicely */
+background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* The image used */
+	min-height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+	background-position:center;
+	background-color:Black;
+}
+.jumbotron>hr{
+	 border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(204, 204, 204, 0), rgba(204, 204, 204, 0.75), rgba(204, 204, 204, 0));
+}
+.jumbotron{
+	 background: rgba(0, 0, 0, 0.8);
+	color:rgba(255, 255, 255, 0.9);
+	margin-top: 100px;
+	margin-bottom: 50px;
+	box-shadow: 4px 4px 8px 8px rgba(0, 0, 0, 0.2), 5px 6px 20px 5px rgba(204, 204, 204, 0.19);
+}
+#mainNavbar{
+	background: black;
+}
+#mainNavbar .nav-color{
+	color: White;
+}
+
+#mainNavbar .nav-link {
+	color: White;
+}
+
+#mainNavbar .nav-link:hover{
+	color: #04a4f2;
+	background:Black;
+}
+
+#mainNavbar .nav-color:hover{
+	color: #04a4f2;
+}
+.alert{
+	position: fixed;
+	z-index: 9;
+	padding: 10px 30px 10px 10px;
+	top: 50%;
+	left: 50%;
+	margin-top: -9.35em; /*set to a negative number 1/2 of your height*/
+    margin-left: -10em;
+	padding: 0 30px 0 10px;
+}

@@ -1,0 +1,55 @@
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.thumbnail img{
+	width:100%;
+	border:3px solid black;
+}
+.thumbnail{
+	padding:12px 12px;
+	background-color:rgba(0,0,0,0.4);
+	color:White;
+	border-radius:15px;
+}
+.thumbnail .caption-full{
+	padding:9px;
+	color:White;
+	
+}
+.thumbnail .caption{
+	color:White;
+	
+}
+body {
+  /* The image used */
+	height: 100%;
+  background-image: url("https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+
+  /* Add the blur effect */
+  backdrop-filter: blur(10px);
+  /* Full height */
+
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#mainNavbar{
+	background: black;
+}
+#mainNavbar .nav-color{
+	color: White;
+}
+
+#mainNavbar .nav-link {
+	color: White;
+}
+
+#mainNavbar .nav-link:hover{
+	color: #04a4f2;
+	background:Black;
+}
+
+#mainNavbar .nav-color:hover{
+	color: #04a4f2;
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CodeAtoZ</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/stylesheets/profile.css">
+		<link rel="stylesheet" href="/stylesheets/login.css">
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+	<nav id="mainNavbar" class="navbar navbar-dark navbar-fixed-top">
+		<div class="container">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand nav-color" href="/">CodeAtoZ</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<% if(!currentUser){ %>
+							<li><a class="nav-link login-btn">Login</a></li>
+							<li><a class="nav-link" href="/register">Sign Up</a></li>
+						<% }else{ %>
+							<li><a class="nav-link" href="#"><%= currentUser.username %></a></li>
+							<li><a class="nav-link" href="/logout">Logout</a></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </nav>
+	<div class="form-popup" id="myForm" style="display: none;">
+	  <form action="/login1" class="form-container" method="POST">
+		<h1 class="formpop">Login to CodeAtoZ</h1>
+		<!-- <div class="loginError">
+			<p>
+				Wrong login or password!
+			</p>
+		</div> -->
+		<label for="email"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="username" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input type="password" placeholder="Enter Password" name="password" required>
+
+		<button type="submit" class="btn log">Login</button>
+		<button type="button" class="btn cancel">Close</button>
+	  </form>
+	</div>
+
+	<script>
+		  $('body').on('click', '.login-btn', function(e){
+			e.preventDefault();
+			$('.form-popup').fadeIn(300);
+	  });
+		 $('body').on('click', '.cancel', function(e){
+			 e.preventDefault();
+			$('.form-popup').fadeOut(300);
+	  });
+	</script>
+		<div class="container">
+			<div class="profile-banner">
+				<img src="<%=user.coverPhoto%>">
+			</div>
+			<div class="strip">
+				<p style="padding-left:250px;">
+					<%=user.first%> <%=user.last%>
+				</p>
+			</div>
+			<div class="profile-picture" style="z-index: 3;">
+				<img src="<%=user.profilePhoto%>" class="expand" style="border-radius: 50%;">
+			</div>
+			
+			
+			
+			<form action="/profile/<%=user.username%>?_method=PUT" method="POST">
+				<div class="profile-details" style="top: -21rem;">
+				<table class="table" style="margin-bottom:0px;">
+					<tr style="height: 70px;">
+						<th scope="row" class="head col-xs-3"></th>
+						<td class="col-sm-9"></td>
+					</tr>
+					<tr class="form-group">
+						<th scope="row" class="head col-xs-3" style="padding-left: 56px; padding-top:22px;"><label for="fn">First Name:</label></th>
+						<td class="col-sm-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;"><input id="fn" type="text"  class="form-control" name="first" value="<%=user.first%>" required></td>
+					</tr>
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:22px;"><label for="ln">Last Name:</label></th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">	<input id="fn" type="text"  class="form-control" name="last" value="<%=user.last%>"  required></td>
+					</tr>
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:22px;"><label for="country">Country:</label></th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">	<input id="country" type="text"  class="form-control" name="country" value="<%=user.country%>" ></td>
+					</tr>
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:22px;">Student/Professional:</th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" >
+								<input id="student" type="radio" name="status" value="Student"
+									   <% if(user.status== "Student"){%>
+									checked=true;
+								   <% } %>
+								   >
+									<label for="student" style="font-weight:normal;">Student</label>
+								<input id="professional" type="radio" name="status" value="Professional"
+									   <% if(user.status== "Professional"){%>
+									checked=true;
+								   <% } %>
+								   >
+									<label for="professional" style="font-weight:normal;">Professional</label>
+								<input id="other" type="radio" name="status" value="Other"
+									   <% if(user.status== "Other"){%>
+									checked=true;
+								   <% } %>
+								   >
+									<label for="other" style="font-weight:normal;">Other</label>
+						</td>
+					</tr>
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:22px;"><label for="institution">Institution:</label></th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><input id="institution" type="text"  class="form-control" name="institution" value="<%=user.institution%>"  required></td>
+					</tr>
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:22px;">Gender:</th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" >
+							<input id="male" class="Male" type="radio" name="gender" value="Male"
+								   <% if(user.gender== "Male"){%>
+									checked=true;
+								   <% } %>
+								   >
+								<label for="male" style="font-weight:normal;">Male</label>
+							<input id="female" class="Female" type="radio" name="gender" value="Female"
+								   <% if(user.gender== "Female"){%>
+									checked=true;
+								   <% } %>
+								   >
+								<label for="female" style="font-weight:normal;">Female</label>
+							<input id="other" class="Other" type="radio" name="gender" value="Other"
+								   <% if(user.gender== "Other"){%>
+									checked=true;
+								   <% } %>
+								   >
+								<label for="other" style="font-weight:normal;">Other</label>
+						</td>
+					</tr>
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:22px;"><label for="linkedIn">LinkedIn:</label></th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><input id="linkedIn" type="text"  class="form-control" name="linkedIn" value="<%=user.linkedIn%>" ></td>
+					</tr>
+					
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:22px;"><label for="codeChef">CodeChef:</label></th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><input id="codeChef" type="text"  class="form-control" name="codeChef" value="<%=user.codeChef%>" ></td>
+					</tr>
+					
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px;padding-top:22px;"><label for="codeForces">CodeForces:</label></th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><input id="codeForces" type="text"  class="form-control" name="codeForces" value="<%=user.codeForces%>" ></td>
+					</tr>
+					
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:22px;"><label for="topCoder">TopCoder:</label></th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><input id="topCoder" type="text"  class="form-control" name="topCoder" value="<%=user.topCoder%>" ></td>
+					</tr>
+					
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px;padding-top:22px;"><label for="leetCode">LeetCode:</label></th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><input id="leetCode" type="text"  class="form-control" name="leetCode" value="<%=user.leetCode%>" ></td>
+					</tr>
+					
+					<tr class="form-group">
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:22px; border-bottom:1px #ddd solid;"><label for="hackerRank">HackerRank:</label></th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px; border-bottom:1px #ddd solid;" ><input id="hackerRank" type="text"  class="form-control" name="hackerRank" value="<%=user.hackerRank%>" ></td>
+					</tr>
+									
+				</table>
+					<div style="text-align:center">
+						<button type="submit" class="submit-button">Submit</button>	
+					</div>
+					
+			</div>
+			</form>
+		</div>
+	</body>
+</html>

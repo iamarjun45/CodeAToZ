@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CodeAtoZ</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/stylesheets/events.css">
+		<link rel="stylesheet" href="/stylesheets/login.css">
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+	<nav id="mainNavbar" class="navbar navbar-dark navbar-fixed-top">
+		<div class="container">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand nav-color" href="/">CodeAtoZ</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<% if(!currentUser){ %>
+							<li><a class="nav-link login-btn">Login</a></li>
+							<li><a class="nav-link" href="/register">Sign Up</a></li>
+						<% }else{ %>
+							<li><a class="nav-link" href="/profile/<%=currentUser._id%>"><%= currentUser.username %></a></li>
+							<li><a class="nav-link" href="/logout">Logout</a></li>
+						<% } %>
+                            </ul>
+				</div>
+			</div>
+		</div>
+    </nav>
+	<div class="form-popup" id="myForm" style="display: none;">
+	  <form action="/login1" class="form-container" method="POST">
+		<h1 class="formpop">Login to CodeAtoZ</h1>
+            <label for="email"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="username" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input type="password" placeholder="Enter Password" name="password" required>
+
+		<button type="submit" class="btn log">Login</button>
+		<button type="button" class="btn cancel">Close</button>
+	  </form>
+	</div>
+
+	<script>
+		  $('body').on('click', '.login-btn', function(e){
+			e.preventDefault();
+			$('.form-popup').fadeIn(300);
+	  });
+$('body').on('click', '.cancel', function(e){
+    e.preventDefault();
+    $('.form-popup').fadeOut(300);
+});
+</script>
+	<div class="container">
+	
+		<div class="jumbotron">
+		 <h1 class="display-4" style="text-align:center;">ONGOING EVENTS</h1>
+	 </div>
+		<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">S.No.</th>
+      <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">End Date</th>
+      <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">End Time (UTC)</th>
+	  <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">Event</th>
+	  <th scope="col" style="text-align:center;padding-top:15px; padding-bottom:15px;">Host</th>
+    </tr>
+  </thead>
+	<%	data2["objects"].forEach(function(data){%>
+		<tbody>
+    		<tr>
+      			<th scope="row" style="text-align:center;"><%=counter2%></th>
+      			<td style="text-align:center;"><%=data.end.toString().substring(8,10)%>-<%=data.end.toString().substring(5,7)%>-<%=data.end.toString().substring(0,4)%></td>
+				<td style="text-align:center;"><%=data.end.toString().substring(11,19)%></td>
+				<td style="text-align:center;"><a href="<%=data.href%>" target="_blank"><%=data.event%></a></td>
+				<td style="text-align:center;"><a href="<%=data.resource.name%>" target="_blank"><%=data.resource.name%></a></td>
+    		</tr>
+  		</tbody>
+			<% counter2=counter2+1 %>
+	<%})%>
+		</table>
+	</div>
+	<div class="container">
+	
+		<div class="jumbotron">
+		 <h1 class="display-4" style="text-align:center;">UPCOMING EVENTS</h1>
+	 </div>
+		<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">S.No.</th>
+      <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">Date</th>
+      <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">Start Time (UTC)</th>
+      <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">Duration</th>
+	  <th scope="col" style="text-align:center; padding-top:15px; padding-bottom:15px;">Event</th>
+	  <th scope="col" style="text-align:center;padding-top:15px; padding-bottom:15px;">Host</th>
+    </tr>
+  </thead>
+	<%	data1["objects"].forEach(function(data){%>
+		<tbody>
+    		<tr>
+      			<th scope="row" style="text-align:center;"><%=counter1%></th>
+      			<td style="text-align:center;"><%=data.start.toString().substring(8,10)%>-<%=data.start.toString().substring(5,7)%>-<%=data.start.toString().substring(0,4)%></td>
+				<td style="text-align:center;"><%=data.start.toString().substring(11,19)%></td>
+      			<td style="text-align:center;">
+					<% if(data.duration.d && (!data.duration.m)){ %>
+						<% if(data.duration.d==1){ %>
+						<%= data.duration.d%> day
+						<% }else{ %>
+							<%= data.duration.d%> days
+					<%	} %>
+					<% } else{ %>
+						<% if(data.duration.m){ %>
+							<%= data.duration.h + (data.duration.d * 24) %>:<%= data.duration.m %> hours
+						<% }else{ %>
+						<%= data.duration.h + (data.duration.d * 24) %>:00 hours
+					<% } %>
+					<% } %>
+					</td>
+				<td style="text-align:center;"><a href="<%=data.href%>" target="_blank"><%=data.event%></a></td>
+				<td style="text-align:center;"><a href="<%=data.resource.name%>" target="_blank"><%=data.resource.name%></a></td>
+    		</tr>
+  		</tbody>
+			<% counter1=counter1+1 %>
+	<%})%>
+		</table>
+	</div>
+		</body>
+	<script>
+	</script>
+</html>

@@ -1,0 +1,84 @@
+html{
+	height:100%;
+}
+body {
+	font-family: 'Raleway', sans-serif;
+}
+body {
+background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* The image used */
+	min-height: 100%;
+
+  /* Center and scale the image nicely */
+  background-size: cover;
+	padding:0;
+}
+.container{
+	position:relative;
+	/* border-radius:100px; */
+}
+
+.profile-details{
+	background-color:rgba(255, 255, 255, 0.8);
+	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+	/* border-radius:10px; */
+}
+.main-box{
+	box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius:15px;
+}
+.submit-button{
+	background-color: Black;
+  color: white;
+  padding: 16px 16px;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+	margin-top:15px;
+  margin-bottom:15px;
+	box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius:10px;
+}
+.strip{
+	width:100%;
+	/* height:90px; */
+	overflow:hidden;
+	background:Black;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+  padding: 15px 35px;
+		/* box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19); */
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+	Color:White;
+}
+#mainNavbar{
+	background: black;
+}
+#mainNavbar .nav-color{
+	color: White;
+}
+
+#mainNavbar .nav-link {
+	color: White;
+}
+
+#mainNavbar .nav-link:hover{
+	color: #04a4f2;
+	background:Black;
+}
+
+#mainNavbar .nav-color:hover{
+	color: #04a4f2;
+}
+
+.move label{
+	margin-right: 20px;
+}

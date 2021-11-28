@@ -1,0 +1,172 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+	min-height:100%;
+	padding-top:50px;
+	background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.code-profile{
+	background:rgba(240, 240, 240, 0.3);
+	font-size:13px;
+	border-radius:8px;
+	box-shadow: 0 0px 8px 0 rgba(100, 100, 100, 0.2), 0 0px 20px 0 rgba(100, 100, 100, 0.19);
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-left:45px;
+}
+
+.profile-banner img{
+	overflow:hidden;
+	/* background:url("https://images.unsplash.com/photo-1558470598-a5dda9640f68?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80"); */
+    background-position: center center;
+    background-size: cover;
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	height:200px;
+	box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+	object-fit:cover;
+	object-position:center;
+}
+.container{
+	position:relative;
+	padding-left:90px;
+	padding-right:90px;
+}
+.profile-picture{
+  overflow:visible;
+  background-position: center center;
+  background-size: cover;
+  border: 5px #efefef solid;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.2), 1px 1px 4px rgba(0,0,0,0.3);
+  position: relative;
+	height:210px;
+  width: 210px;
+	top:-17rem;
+	left:5rem;
+	background-color: white;
+}
+.profile-picture img{
+	display:block;
+	max-width:100%;
+	object-fit:fill;
+	object-position:center;
+}
+
+.strip{
+	width:100%;
+	height:70px;
+	background:Black;
+	 display: inline-block;
+  position: relative;
+  background-color: rgb(20, 20, 20);
+  background-image: linear-gradient( /* chrome */
+    hsla(0, 0%, 100%, 0.4), hsla(0, 0%, 100%, 0.15) 50%,
+    hsla(0, 0%, 0%, 0.2) 50%, hsla(0, 0%, 100%, 0.1)
+  );
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+  padding: 20px 40px;
+		box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+	Color:White;
+}
+.profile-details{
+	background-color:rgba(255, 255, 255, 0.8);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.submit-button{
+	background-color: Black;
+  color: white;
+  padding: 16px 16px;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+	margin-top:15px;
+  margin-bottom:15px;
+	box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius:4px;
+}
+#mainNavbar{
+	background: black;
+}
+#mainNavbar .nav-color{
+	color: White;
+}
+
+#mainNavbar .nav-link {
+	color: White;
+}
+
+#mainNavbar .nav-link:hover{
+	color: #04a4f2;
+	background:Black;
+}
+
+#mainNavbar .nav-color:hover{
+	color: #04a4f2;
+}
+
+.profile-details{
+	position: relative;
+	top: -21.5rem;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.table{
+	padding-top: 0;
+	margin-top: 0;
+}
+
+.edit{
+	/* position: relative;
+	top: -3.5rem;
+	left: 9rem; */
+}
+
+label.cabinet{
+	display: block;
+	cursor: pointer;
+}
+
+label.cabinet input.file{
+	position: relative;
+	height: 100%;
+	width: auto;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+	margin-top:-30px;
+}
+
+#upload-demo{
+	width: 400px;
+	height: 400px;
+	padding-bottom:25px;
+}
+
+.pp img{
+	border-radius: 50%;
+}
+figure figcaption {
+	position: absolute;
+	top: 2.5em;
+	left: 9em;
+	color: #fff;
+	width: 100%;
+	padding-left: 9px;
+	padding-bottom: 5px;
+	text-shadow: 0 0 10px #000;
+}

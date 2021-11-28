@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CodeAtoZ</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/stylesheets/content.css">
+		<link rel="stylesheet" href="/stylesheets/login.css">
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    </head>
+    <body>
+	<nav id="mainNavbar" class="navbar navbar-dark navbar-fixed-top">
+		<div class="container">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand nav-color" href="/">CodeAtoZ</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<% if(!currentUser){ %>
+							<li><a class="nav-link login-btn">Login</a></li>
+							<li><a class="nav-link" href="/register">Sign Up</a></li>
+						<% }else{ %>
+							<li><a class="nav-link" href="/profile/<%=currentUser.username%>"><%= currentUser.username %></a></li>
+							<li><a class="nav-link" href="/logout">Logout</a></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </nav>
+	<div class="form-popup" id="myForm" style="display: none;">
+	  <form action="/login1" class="form-container" method="POST">
+		<h1 class="formpop">Login to CodeAtoZ</h1>
+		<label for="email"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="username" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input type="password" placeholder="Enter Password" name="password" required>
+
+		<button type="submit" class="btn log">Login</button>
+		<button type="button" class="btn cancel">Close</button>
+	  </form>
+	</div>
+
+		
+		<%if(error && error.length > 0){%>
+			<div class="form-popup" id="myForm">
+			  <form action="/login1" class="form-container" method="POST">
+				<h1 class="formpop">Login to CodeAtoZ</h1>
+				<div class="alert alert-danger alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<%=error%>
+				</div>
+				<label for="email"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="username" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="password" required>
+
+				<button type="submit" class="btn log">Login</button>
+				<button type="button" class="btn cancel">Close</button>
+			  </form>
+			</div>
+		<%}%>
+		
+		
+<div class="container">
+	 <div class="jumbotron">
+		 <h1 class="display-4">Learn | Practice | Improve</h1>
+		 <p class="lead">This section includes the modules for you to study and practice.</p>
+		 <hr class="my-4">
+		 <p>Feel free to dive into these subjects and make the best out of the learning materials.</p>
+	 </div>
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		 <div class="col-md-3 col-sm-6">
+			 <div class="thumbnail shadow-lg p-3 mb-5 bg-white rounded">
+				 <img src="data:image/png;base64,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">
+				 <div class="caption">
+					 <h4>Arrays</h4>
+				 </div>
+				<p>Problems : 50</p>
+				 <p>
+					 <a href="/contents/Arrays" class="btn btn-primary">Explore</a>
+				 </p>
+			 </div>
+		 </div>
+		  <div class="col-md-3 col-sm-6">
+			 <div class="thumbnail shadow-lg p-3 mb-5 bg-white rounded">
+				 <img src="data:image/png;base64,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">
+				 <div class="caption">
+					 <h4>Backtracking</h4>
+				 </div>
+				 <p>Problems : 50</p>
+				 <p>
+					 <a href="/contents/backtracking" class="btn btn-primary">Explore</a>
+				 </p>
+			 </div>
+		 </div>
+	 </div>
+</div>
+		
+		<script>
+			  $('body').on('click', '.login-btn', function(e){
+					e.preventDefault();
+					$('.form-popup').fadeIn(300);
+		 	 });
+			 $('body').on('click', '.cancel', function(e){
+				 e.preventDefault();
+				$('.form-popup').fadeOut(300);
+		 	});
+			$('body').on('click','.close',function(e){
+				$('.alert').css("display","none");
+			});
+		</script>
+
+<%- include("../partials/footer") -%>

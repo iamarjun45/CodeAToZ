@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CodeAtoZ</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/stylesheets/profile.css">
+		<link rel="stylesheet" href="/stylesheets/login.css">
+		<link 
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://foliotek.github.io/Croppie/croppie.css">
+    </head>
+    <body>
+	<nav id="mainNavbar" class="navbar navbar-dark navbar-fixed-top">
+		<div class="container">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand nav-color" href="/">CodeAtoZ</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<% if(!currentUser){ %>
+							<li><a class="nav-link login-btn">Login</a></li>
+							<li><a class="nav-link" href="/register">Sign Up</a></li>
+						<% }else{ %>
+							<li><a class="nav-link" href="#"><%= currentUser.username %></a></li>
+							<li><a class="nav-link" href="/logout">Logout</a></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </nav>
+	<div class="form-popup" id="myForm" style="display: none;">
+	  <form action="/login1" class="form-container" method="POST">
+		<h1 class="formpop">Login to CodeAtoZ</h1>
+		<!-- <div class="loginError">
+			<p>
+				Wrong login or password!
+			</p>
+		</div> -->
+		<label for="email"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="username" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input type="password" placeholder="Enter Password" name="password" required>
+
+		<button type="submit" class="btn log">Login</button>
+		<button type="button" class="btn cancel">Close</button>
+	  </form>
+	</div>
+
+		<div class="container">
+			<div class="profile-banner">
+				<label class="cabinet center-block" style="margin-bottom: 0">
+					<figure>
+						<img src="<%=user.coverPhoto%>"/>
+					</figure>
+				</label>
+			</div>
+			<div class="strip">
+					<div class="row">
+						<div class="col-lg-5 col-md-6 col-sm-8 col-xs-9" style="text-align:right;">
+							<%=user.first%> <%=user.last%>
+						</div>
+						<div class="col-lg-7 col-md-6 col-sm-4 col-xs-3" style="text-align:right;">
+							<%	if(currentUser && currentUser.username===user.username){ %>
+					<a href="/profile/<%=user.username%>/edit"><i class="fas fa-user-edit" style="color:White;"></i></a>
+				<% } %>
+						</div>
+					</div>
+			</div>
+			<div class="profile-picture" style="z-index:2;">
+				<label class="cabinet center-block">
+					<figure class="pp">
+						<img src="<%=user.profilePhoto%>" class="expand" id="item-img-output">
+						<%	if(currentUser && currentUser.username===user.username){ %>
+						<figcaption style="top:10.5em;left:11em;"><i class="fa fa-camera fa-2x" style="z-index:5;"></i></figcaption>
+						<% } %>
+				</figure>
+						<%	if(currentUser && currentUser.username===user.username){ %>
+						<input type="file" class="item-img file center-block" name="profilePhoto">
+						<% } %>
+					</label>
+			</div>
+			<div class="profile-details">
+				<table class="table">
+					<tr style="height: 70px;">
+						<th scope="row" class="head col-xs-3"></th>
+						<td class="col-sm-9"></td>
+					</tr>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">Username:</th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;"><%=user.username%></td>
+					</tr>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">Country:</th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;"><%=user.country%></td>
+					</tr>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">Student/Professional:</th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><%=user.status%></td>
+					</tr>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">Institution:</th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><%=user.institution%></td>
+					</tr>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">Gender:</th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><%=user.gender%></td>
+					</tr>
+					<%	if(user.linkedIn){ %>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">LinkedIn:</th>
+						<td class="col-xs-9" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;" ><a href="<%=user.linkedIn%>"><%=user.linkedIn%></a></td>
+					</tr>
+					<%}%>
+					<%	if(user.codeChef){ %>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">CodeChef:</th>
+						<td class="col-xs-9">
+							<table class="code-profile">
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:10px;">Username:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >
+										<a href="https://codechef.com/users/<%= user.codeChef %>" target="_blank"><%= user.codeChef %></a>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:15px;">Stars:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >
+										<% if(user.codeChef_stars){%>
+											<%= user.codeChef_stars %>
+										<% }else{ %>
+											-
+										<% } %>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:15px;">Rating:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >
+										<% if(user.codeChef_rating){%>
+											<%= user.codeChef_rating %>
+										<% }else{ %>
+											-
+										<% } %>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<%}%>
+					<%	if(user.codeForces){ %>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">Codeforces:</th>
+						<td class="col-xs-9">
+							<table class="code-profile">
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:10px;">Username:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >
+										<a target="_blank" href="https://codeforces.com/profile/<%= user.codeForces %>"><%= user.codeForces %></a>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:15px;">Rank:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >
+										<% if(user.codeForces_rank){%>
+											<%= user.codeForces_rank %>
+										<% }else{ %>
+											-
+										<% } %>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:15px;">Rating:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >
+										<% if(user.codeForces_rating){%>
+											<%= user.codeForces_rating %>
+										<% }else{ %>
+											-
+										<% } %>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<%}%>
+					<%	if(user.hackerRank){ %>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">HackerRank:</th>
+						<td class="col-xs-9">
+							<table class="code-profile">
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:10px;">Username:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >sahayshambhavi</td>
+								</tr>
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:15px;">Badges:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >4 star</td>
+								</tr>
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:15px;">Ratings:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >1804</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<%}%>
+					<%	if(user.leetCode){ %>
+					<tr>
+						<th scope="row" class="col-xs-3" style="padding-left: 56px; padding-top:15px; padding-bottom:15px;">LeetCode:</th>
+						<td class="col-xs-9">
+							<table class="code-profile">
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:10px;">Username:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >sahayshambhavi</td>
+								</tr>
+								<tr>
+									<th scope="row" class="col-xs-3" style="padding-top:15px; padding-bottom:15px;">Stars:</th>
+									<td class="col-xs-9" style="padding-top:15px; padding-bottom:15px;" >4 star</td>
+								</tr>
+								<%}%>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">
+								<?=multiLanguage( "Edit Foto" , "Edit Photo" )?></h4>
+					</div>
+					<div class="modal-body">
+						<div id="upload-demo" class="center-block"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<form action="/profile/<%=user.username%>/add?_method=PUT" method="POST">
+							<input type="text" id="imgjajaja" name="profilePhoto" class="hidden">
+							<button type="submit" id="cropImageBtn" class="btn btn-primary">Crop</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://foliotek.github.io/Croppie/croppie.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script id="rendered-js">
+	var $uploadCrop,
+		tempFilename,
+		rawImg,
+		imageId;
+		function readFile(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('.upload-demo').addClass('ready');
+					$('#cropImagePop').modal('show');
+					rawImg = e.target.result;
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+			else{
+				swal("Sorry - you're browser doesn't support the FileReader API");
+			}
+		}
+
+		$uploadCrop = $('#upload-demo').croppie({
+							viewport: { width: 305, height: 305, type: 'circle' },
+							boundary: { width: 300, height: 300 },
+							enforceBoundary: false,
+							enableExif: true
+						});
+		$('#cropImagePop').on('shown.bs.modal', function(){
+			$uploadCrop.croppie('bind', {
+				url: rawImg
+			})
+			.then(function(){
+				console.log('jQuery bind complete');
+			});
+		});
+
+		$('.item-img').on('change', function () { 
+			imageId = $(this).data('id'); 
+			tempFilename = $(this).val();
+			$('#cancelCropBtn').data('id', imageId); 
+			readFile(this);
+		});
+		$('#cropImageBtn').on('click', function (ev) {
+			$uploadCrop.croppie('result', {
+				type: 'base64',
+				format: 'jpeg',
+				size: {width: 300, height: 300},
+				backgroundColor: '#ffffff'
+			}).then(function (resp) {
+					$('#imgjajaja').val(resp);
+					$('#item-img-output').attr('src', resp);
+					$('#cropImagePop').modal('hide');
+				});
+		});
+			  $('body').on('click', '.login-btn', function(e){
+			e.preventDefault();
+			$('.form-popup').fadeIn(300);
+	  });
+		 $('body').on('click', '.cancel', function(e){
+			 e.preventDefault();
+			$('.form-popup').fadeOut(300);
+	  });
+	</script>
+	</body>
+</html>
