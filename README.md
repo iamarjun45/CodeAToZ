@@ -14,41 +14,41 @@ CodeAToZ is a platform that allows:
 ## Demo
 1. Landing Page 
 <p align="center">
-<img alt="EcoJourney" src="./templates/1.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/1.png" width="1600px" height="500px" />
 </p>
 2. Login Popup
 <p align="center">
-<img alt="EcoJourney" src="./templates/2.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/2.png" width="1600px" height="500px" />
 </p>
 3. Registration Page
 <p align="center">
-<img alt="EcoJourney" src="./templates/3.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/3.png" width="1600px" height="500px" />
 </p>
 4. Contents Page
 <p align="center">
-<img alt="EcoJourney" src="./templates/4.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/4.png" width="1600px" height="500px" />
 </p>
 5. Module Page
 <p align="center">
-<img alt="EcoJourney" src="./templates/5.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/5.png" width="1600px" height="500px" />
 </p>
 6. Events Page - Ongoing Events
 <p align="center">
-<img alt="EcoJourney" src="./templates/6.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/6.png" width="1600px" height="500px" />
 </p>
 7. Events Page - Upcoming Events
 <p align="center">
-<img alt="EcoJourney" src="./templates/7.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/7.png" width="1600px" height="500px" />
 </p>
 8. Profile Page
 <p align="center">
-<img alt="EcoJourney" src="./templates/8.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/8.png" width="1600px" height="500px" />
 </p>
 9. Edit Profile Picture
 <p align="center">
-<img alt="EcoJourney" src="./templates/9.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/9.png" width="1600px" height="500px" />
 </p>
 10. Profile Page - Edit
 <p align="center">
-<img alt="EcoJourney" src="./templates/10.png" width="500px" height="500px" />
+<img alt="EcoJourney" src="./templates/10.png" width="1600px" height="500px" />
 </p>
