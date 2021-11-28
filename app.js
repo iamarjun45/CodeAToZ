@@ -90,9 +90,7 @@ app.get("/profile/:id",function(req,res){
 									if(results.status==='Success'){
 										userProfile.codeForces_rating=results.rating;
 										userProfile.codeForces_rank=results.rank;
-			 							console.log(userProfile);
 									}
-									console.log(userProfile);
 								})
 								.catch(function(error){
 									console.log(error);
@@ -112,9 +110,7 @@ app.get("/profile/:id",function(req,res){
 							if(results.status==='Success'){
 								userProfile.codeForces_rating=results.rating;
 								userProfile.codeForces_rank=results.rank;
-			 					console.log(userProfile);
 							}
-							console.log(userProfile);
 						})
 						.catch(function(error){
 								console.log(error);
